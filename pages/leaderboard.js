@@ -16,17 +16,17 @@ const Leaderboard = () => {
   }, [])
 
   return (
-    <div className='flex-col bg-ikkiarBgGray2 h-screen mx-128 mt-10 rounded-md overflow-hidden'>
+    <div className='bg-ikkiarBgGray2 flex-col justify-center h-screen mx-128 mt-10 rounded-md overflow-hidden'>
 
       <h2 className='text-2xl text-center'>
         Leaderboard
       </h2>
 
-      <div className='flex-col w-auto'>
+      <div className='flex-col w-auto p-10'>
         {leaderboard.map((s, idx) =>
 
 
-            <motion.div whileHover={{ scale: 1.1 }} key={'leaderboard-summoner-' + idx} className='flex justify-center border-l-8 border-green rounded-l my-4 bg-ikkiarBgGray1'>
+            <motion.div whileHover={{ scale: 1.06 }} key={'leaderboard-summoner-' + idx} className='flex justify-center border-l-8 border-green rounded-l my-4 bg-ikkiarBgGray1'>
 
                 {idx === 0 ? 
                 <div className='flex py-1 my-1'>

@@ -49,9 +49,9 @@ const History = () => {
           Match history
         </h2>
 
-        <div className='flex-col p-5'>
+        <div className='flex-col p-6'>
           {matches.map((match, idx) => 
-            <motion.div whileHover={{ scale: 1.02 }}  key={'leaderboard-summoner-' + idx} className={'flex justify-end w-auto h-auto border-l-8 border-green rounded-l py-2 my-3 bg-ikkiarBgGray1'}>
+            <motion.div whileHover={{ scale: 1.03 }}  key={'leaderboard-summoner-' + idx} className={'flex justify-end w-auto h-auto border-l-8 border-green rounded-l py-2 my-3 bg-ikkiarBgGray1'}>
 
             <div className='flex-col pr-12 border-r border-grayDetailText mr-3'>
               <div className='truncate'>

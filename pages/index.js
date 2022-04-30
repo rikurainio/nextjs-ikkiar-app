@@ -10,7 +10,7 @@ export default function Home() {
 
       <div className='flex justify-center'>
         <h1 className="text-4xl font-bold underline pt-5">
-          🐒 Ikkiar.gg
+          🐒 Ikkiar 👋
         </h1>
       </div>
       <div className='flex justify-center'>
