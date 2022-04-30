@@ -11,12 +11,20 @@ module.exports = {
     },
     colors: {
       'ikkiarMain': '#00caa4',
-      'ikkiarDark': '#064040',
-      'ikkiarWhite': '#e9ffff',
-      'ikkiarBright': '#0bdbb6',
+      'ikkiarDark': '#13ce66',
+      'ikkiarBright': '#13ce66',
 
+      'ikkiarDark2': '#45a390',
+
+      'ikkiarWhite': '#ffffff',
+      'ikkiarBgGray1': '#ebeef1',
+      'ikkiarBgGray2': '#f7f7f9',
+      'ikkiarBgGray3': '#cccccc',
+      'ikkiarLineGray': '#ffffff',
+
+      'red': '#ee3e38',
       'blue': '#1fb6ff',
-      'purple': '#7e5bef',
+      'purple': '#7e5bef', 
       'pink': '#ff49db',
       'orange': '#ff7849',
       'green': '#13ce66',
@@ -30,6 +38,13 @@ module.exports = {
       serif: ['Merriweather', 'serif'],
     },
     extend: {
+      scale: {
+        '10': '0.32',
+        'champIcon': '0.5',
+        '102': '1.02',
+        '105': '1.05',
+      },
+      visibility: ["group-hover"],
       spacing: {
         '128': '32rem',
         '144': '36rem',
