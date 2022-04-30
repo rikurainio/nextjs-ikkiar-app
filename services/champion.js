@@ -175,7 +175,6 @@ const getChampionImageSource = (championName) => {
     const CDN1271_IMG_BY_CHAMP_NAME
     = "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/" +
         championName + ".png"
-    console.log(CDN1271_IMG_BY_CHAMP_NAME)
     return CDN1271_IMG_BY_CHAMP_NAME
 }
 

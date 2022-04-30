@@ -22,6 +22,10 @@ module.exports = {
       'ikkiarBgGray3': '#cccccc',
       'ikkiarLineGray': '#ffffff',
 
+      'grayDetailText': '#9e9e9e',
+
+      'rw': '#ffe7e6',
+
       'red': '#ee3e38',
       'blue': '#1fb6ff',
       'purple': '#7e5bef', 
