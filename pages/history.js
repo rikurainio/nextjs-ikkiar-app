@@ -55,8 +55,17 @@ const History = () => {
   console.log('setmatches',matches)
 
 
-
   if(!loading){
+
+    if(matches.length < 1){
+      return (
+        <div className='bg-ikkiarBgGray2 flex-col justify-center h-screen mx-128 mt-10 rounded-md overflow-hidden'>
+          <div className='flex justify-center pt-52'>
+            <h1 className='text-2xl font-bold'>No matches played yet</h1>
+          </div>
+        </div>
+      )
+    }
     return (
       <div className='bg-ikkiarBgGray2 flex-col justify-center mx-128 mt-10 rounded-md overflow-hidden'>
         <div className=''>
