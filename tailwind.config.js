@@ -25,6 +25,7 @@ module.exports = {
       'grayDetailText': '#9e9e9e',
 
       'rw': '#ffe7e6',
+      'discord': '#5865f2',
 
       'red': '#ee3e38',
       'blue': '#1fb6ff',
@@ -54,6 +55,7 @@ module.exports = {
         '144': '36rem',
       },
       borderRadius: {
+        'discord': '0.3rem',
         '4xl': '2rem',
       }
     }

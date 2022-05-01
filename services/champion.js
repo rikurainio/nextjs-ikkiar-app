@@ -169,8 +169,19 @@ const getChampionNameById = (id) => {
 }
 
 const getChampionImageSource = (championName) => {
-    championName.toLowerCase()
-    championName.charAt(0).toUpperCase()
+
+    if(championName === 'LeBlanc'){ championName = 'Leblanc' }
+    if(championName.indexOf(' ') >= 0){
+        let idx = championName.indexOf(' ')
+        championName = championName.slice(0, idx) + championName.slice(idx+1)
+    }
+
+    if(championName.indexOf('\'') >= 0){
+        let idx = championName.indexOf('\'')
+        championName = championName.slice(0, idx) + championName.slice(idx+1)
+        championName = championName.toLowerCase()
+        championName = championName.slice(0,1).toUpperCase() + championName.slice(1)
+    }
 
     const CDN1271_IMG_BY_CHAMP_NAME
     = "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/" +

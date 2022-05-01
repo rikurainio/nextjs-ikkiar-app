@@ -33,17 +33,26 @@ const History = () => {
     return returnText
   }
 
-  const getWinnerText = () => {
-    if(winner === 100){
+  const getWinnerText = (team) => {
+    if(team.teamId === 100 && team.win === true){
       return 'Blue'
     }
     return 'Red'
   }
 
+  const getCssRuleWin = (team) => {
+    if(team.teamId === 100 && team.win === true){
+      return ' text-blue'
+    }
+    else{
+      return ' text-red'
+    }
+  }
+
   console.log('setmatches',matches)
 
   return (
-    <div className='bg-ikkiarBgGray2 flex-col justify-center h-screen mx-128 mt-10 rounded-md overflow-hidden'>
+    <div className='bg-ikkiarBgGray2 flex-col justify-center mx-128 mt-10 rounded-md overflow-hidden'>
       <div className=''>
         <h2 className='text-2xl text-center'>
           Match history
@@ -51,7 +60,7 @@ const History = () => {
 
         <div className='flex-col p-6'>
           {matches.map((match, idx) => 
-            <motion.div whileHover={{ scale: 1.03 }}  key={'leaderboard-summoner-' + idx} className={'flex justify-end w-auto h-auto border-l-8 border-green rounded-l py-2 my-3 bg-ikkiarBgGray1'}>
+            <motion.div whileHover={{ scale: 1.03 }}  key={'leaderboard-summoner-' + idx} className={'flex justify-end w-auto h-auto border-l-8 border-green rounded-l py-2 my-12 bg-ikkiarBgGray1'}>
 
             <div className='flex-col pr-12 border-r border-grayDetailText mr-3'>
               <div className='truncate'>
@@ -60,8 +69,8 @@ const History = () => {
               <div className='truncate'>
                 {(match.gameData.info.gameDuration / 60).toFixed()} minutes 
               </div>
-              <div className='truncate font-semibold'>
-                {getWinnerText(match.gameData.info.teams[0].win)} Win 
+              <div className={'truncate font-extralight' + getCssRuleWin(match.gameData.info.teams[0])}>
+                {getWinnerText(match.gameData.info.teams[0])} Win 
               </div>
               <div className='truncate text-grayDetailText text-xs font-thin'>
                 ver:{match.gameData.info.gameVersion}
@@ -69,7 +78,9 @@ const History = () => {
             </div>
 
             <div className='flex-col pr-3'>
-              {match.gameData.info.teams[0].objectives.champion.kills} <RiSwordFill className='text-xl'></RiSwordFill> {match.gameData.info.teams[1].objectives.champion.kills}
+              <p className='text-blue text-lg'>{match.gameData.info.teams[0].objectives.champion.kills}</p>
+              <RiSwordFill className='text-xl'></RiSwordFill>
+              <p className='text-red text-lg'>{match.gameData.info.teams[0].objectives.champion.kills}</p>
             </div>
           
             <div className='flex-col'>
