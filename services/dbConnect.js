@@ -1,11 +1,4 @@
-// /lib/dbConnect.js
 import mongoose from 'mongoose'
-
-/** 
-Source : 
-https://github.com/vercel/next.js/blob/canary/examples/with-mongodb-mongoose/utils/dbConnect.js 
-**/
-
 
 const MONGODB_URI = process.env.MONGODB_URI
 

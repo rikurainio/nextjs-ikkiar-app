@@ -53,4 +53,4 @@ schema.set('toJSON', {
   }
 })
 
-module.exports = mongoose.models.Match || mongoose.model('Summoner', schema)
+module.exports = mongoose.models.Summoner || mongoose.model('Summoner', schema)

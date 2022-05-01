@@ -20,4 +20,4 @@ schema.set('toJSON', {
   }
 })
 
-module.exports =  mongoose.models.Match || mongoose.model('Queuer', schema)
+module.exports =  mongoose.models.Queuer || mongoose.model('Queuer', schema)

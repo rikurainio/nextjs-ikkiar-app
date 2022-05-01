@@ -1,18 +1,13 @@
+const Match = require('../../models/match')
+const Summoner = require('../../models/summoner')
 const Queuer = require('../../models/queuer')
 const { default: dbConnect } = require('../../services/dbConnect.js')
 
 
 const handler = async (req, res) => {
-    if(req.method === 'GET'){
-
         await dbConnect()
-
-        if(req.url === '/api/queuers'){
-            console.log('going')
-            const queuers = await Queuer.find({})
-            res.send(queuers)
-        }
-    }
+        const queuers = await Queuer.find({})
+        res.status(200).json(queuers)
 }
 
 export default handler
