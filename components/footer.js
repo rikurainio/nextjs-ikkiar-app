@@ -6,12 +6,12 @@ const Footer = () => {
     <div className='flex h-24 mt-16 w-full justify-center'> 
       <div className='flex-col'>
         <div className='flex justify-center'>
-          <a className='cursor-pointer text-2xl'>
+          <a href='https://twitter.com/RhanLoL' className='cursor-pointer text-2xl'>
             <SiTwitter></SiTwitter>
           </a>
         </div>
         <div className='flex justify-center'>
-          <a className='cursor-pointer'>
+          <a href='https://twitter.com/RhanLoL' className='cursor-pointer'>
             <p>@RhanLoL</p>
           </a>
         </div>
