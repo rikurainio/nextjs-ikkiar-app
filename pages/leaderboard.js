@@ -32,7 +32,7 @@ const Leaderboard = () => {
                 <div className='flex py-1 my-1'>
                   <div className='flex'>
                     <div className='w-96'>
-                      <h2 className='text-xl'>🥇{s.username} (MEGAMONKE 🐒👑)</h2>
+                      <h2 className='text-xl'>🥇{s.username} (megamonke 🐒👑)</h2>
                     </div>
                     <div className='w-40'>
                       <p className='text-xl text-center font-bold'>&nbsp;{s.points}💠&nbsp;</p>
@@ -47,7 +47,7 @@ const Leaderboard = () => {
                 
                 <div className='flex py-1 my-1'>
                     <div className='w-96'>
-                      { idx === 1 || idx === 2 ? <h2 className='text-xl'>{idx ===1 ? '🥈' : '🥉'}{s.username} {idx === 1 ? '(APE APE 🐵)' : idx===2 ? '(SUPER APE 🐵)' : null}</h2> : <h2 className='text-xl'>🏅{s.username}</h2>}
+                      { idx === 1 || idx === 2 ? <h2 className='text-xl'>{idx ===1 ? '🥈' : '🥉'}{s.username} {idx === 1 ? '(ape-ape 🐵)' : idx===2 ? '(good monke🙊)' : null}</h2> : <h2 className='text-xl'>🏅{s.username}</h2>}
                     </div>
                     <div className='w-40'>
                       <p className='text-xl text-center font-bold'>&nbsp;{s.points}💠&nbsp;</p>
