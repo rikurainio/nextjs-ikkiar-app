@@ -28,7 +28,7 @@ const Leaderboard = () => {
       )
     }
     return (
-      <div className='bg-ikkiarBgGray2 flex-col justify-center mx-128 mt-10 rounded-md overflow-hidden'>
+      <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden'>
 
         <h2 className='text-2xl text-center pt-5'>
           Leaderboard
@@ -77,7 +77,7 @@ const Leaderboard = () => {
     )
   }
   return (
-    <div className='bg-ikkiarBgGray2 flex-col justify-center h-screen mx-128 mt-10 rounded-md overflow-hidden'>
+    <div className='bg-ikkiarBgGray2 flex-col justify-center h-screen mt-10 rounded-md overflow-hidden'>
       <div className='flex justify-center pt-52'>
         <RotateLoader></RotateLoader>
       </div>
