@@ -11,7 +11,6 @@ const Leaderboard = () => {
     summonerService
       .getBest25()
       .then((leadingSummoners) => {
-        console.log(leadingSummoners.data)
         setLeaderboard(leadingSummoners.data)
         setLoading(false)
       })

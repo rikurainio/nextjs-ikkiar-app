@@ -61,9 +61,6 @@ const History = () => {
     }
   }
 
-  console.log('setmatches',matches)
-
-
   if(!loading){
 
     if(matches.length < 1){
