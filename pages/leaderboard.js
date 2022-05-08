@@ -33,7 +33,7 @@ const Leaderboard = () => {
           Leaderboard
         </h2>
 
-        <div className='flex-col w-auto p-10'>
+        <div className='flex-col w-auto'>
           {leaderboard.map((s, idx) =>
 
 

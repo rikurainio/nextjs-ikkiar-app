@@ -27,7 +27,7 @@ export default function Home() {
               What is Ikkiar?
             </h1>
             <div className='flex-wrap justify-center pt-4'>
-              Ikkiar is a Discord bot that runs inhouses. Join the inhouse <a className='text-md text-discord' href='https://discord.gg/pR4DgC82'> here 🎮</a>
+              Ikkiar is a Discord bot that runs inhouses. Join the inhouse server <a className='text-md text-discord' href='https://discord.gg/pR4DgC82'> here 🎮</a>
             </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function Home() {
           <div className='justify-center pt-4 '>
           After matching the Summoners one of the Summoners have to create a Custom Game and include 'ikkiar' in its' name.
           This way the match played can be submitted and validated later on. Ikkiar scores Summoners when one of them submits
-          the match by using a /submitmatch + gameId command in the <p className='inline-block bg-discord rounded-discord px-1 font-medium text-ikkiarWhite'>#🐒spam</p> Discord channel.
+          the match by sending the .rofl replay file to the <p className='inline-block bg-discord rounded-discord px-1 font-medium text-ikkiarWhite'>#🐒submitmatch</p> channel.
         </div>
         </div>
       </div>
@@ -79,7 +79,6 @@ export default function Home() {
         Use commands in the  <p className='inline-block bg-discord rounded-discord px-1 font-medium text-ikkiarWhite'>#🐒spam</p> channel.
         Commands available for everyone are:
         <div className='pt-3'>
-          <p className='inline-block bg-green rounded-discord px-1 mx-1 font-medium text-gray-dark'>/submitmatch [gameId]</p>
           <p className='inline-block bg-green rounded-discord px-1 mx-1 font-medium text-gray-dark'>/decide</p>
           <p className='inline-block bg-green rounded-discord px-1 mx-1 font-medium text-gray-dark'>/greet</p>
           <p className='inline-block bg-green rounded-discord px-1 mx-1 font-medium text-gray-dark'>/huutista</p>
