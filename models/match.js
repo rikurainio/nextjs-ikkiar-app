@@ -1,12 +1,12 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
-const schema = mongoose.Schema({
+const matchSchema = new mongoose.Schema({
         gameData: { type: mongoose.Schema.Types.Mixed }
 })
 
 mongoose.promise = global.Promise
 
-schema.set('toJSON', {
+matchSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
@@ -14,4 +14,7 @@ schema.set('toJSON', {
   }
 })
 
-module.exports = mongoose.models.Match || mongoose.model('Match', schema)
+console.log('M:', mongoose.models)
+mongoose.models = {};
+
+module.exports = mongoose.model('Match', matchSchema)

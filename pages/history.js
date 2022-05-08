@@ -4,18 +4,26 @@ import { RiSwordFill } from 'react-icons/ri';
 import { motion } from "framer-motion"
 import { getChampionImageSource, getChampionNameById } from '../services/champion'
 import RotateLoader from "react-spinners/RotateLoader";
+import match from '../models/match';
 
 const History = () => {
   const [loading, setLoading] = useState(true)
-  const [matches, setMatches] = useState([])
-  const [winner, setWinner] = useState(0)
+  const [matches, setMatches] = useState([{}])
+  // true = blue win, false = red win
+  const [winner, setWinner] = useState(true)
 
-  useEffect(async () => {
-    const matches = await matchService.getAll()
-    setMatches(matches)
-    setLoading(false)
+  useEffect(() => {
+    matchService
+      .getAll()
+      .then((matches) => {
+        setMatches(matches.data)
+        setLoading(false)
+      })
+
+
   }, [])
 
+  console.log('matches: ', matches)
 
   const getTimeStamp = (asd) => {
     const time = new Date(asd)
@@ -36,33 +44,37 @@ const History = () => {
     return returnText
   }
 
-  const getWinnerText = (team) => {
-    if(team.teamId === 100 && team.win === true){
-      return 'Blue'
+  const getTextRuleWin = (summoner) => {
+    if(summoner.TEAM === '100' && summoner.WIN !== "Fail"){
+      return 'Blue Win'
     }
-    return 'Red'
+    return 'Red Win'
   }
 
-  const getCssRuleWin = (team) => {
-    if(team.teamId === 100 && team.win === true){
+  const getCssRuleWin = (summoner) => {
+    if(summoner.TEAM === '100' && summoner.WIN !== "Fail"){
       return ' text-blue'
     }
-    else{
-      return ' text-red'
-    }
+    return ' text-red'
   }
 
-  const getCssRuleWinBorder = (team) => {
-    if(team.teamId === 100 && team.win === true){
-      return ' border-blue'
-    }
-    else{
-      return ' border-red'
-    }
+  const getBlueTeamSummoners = (statsJson) => {
+    return statsJson.filter(summoner => summoner.TEAM === "100")
   }
+
+  const getRedTeamSummoners = (statsJson) => {
+    return statsJson.filter(summoner => summoner.TEAM === "200")
+  }
+
+  const getTeamKills = (teamSummonersArr) => {
+    let teamKills = 0
+    teamSummonersArr.forEach(summoner => {
+      teamKills += parseInt(summoner.CHAMPIONS_KILLED)
+    })
+    return teamKills
+  } 
 
   if(!loading){
-
     if(matches.length < 1){
       return (
         <div className='bg-ikkiarBgGray2 flex-col justify-center h-screen mt-10 rounded-md overflow-hidden'>
@@ -75,73 +87,57 @@ const History = () => {
     return (
       <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden'>
 
-        <div className=''>
           <h2 className='text-2xl text-center pt-5'>
             Match history
           </h2>
 
           <div className='flex justify-center'>
                   <div className='flex-col p-6'>
-                    {matches.map((match, idx) => 
-                      <motion.div whileHover={{ scale: 1.03 }}  key={'leaderboard-summoner-' + idx} className={'flex justify-end border-l-8 border-green rounded-l py-2 my-10 bg-ikkiarBgGray1'}>
+                    {matches.reverse().map((match, idx) => 
+                      <motion.div whileHover={{ scale: 1.03 }} key={'leaderboard-summoner-' + idx} className={'flex justify-end border-l-8 border-green rounded-l py-2 my-10 bg-ikkiarBgGray1'}>
 
                       <div className='flex-col pr-2 border-r border-grayDetailText mr-3 ml-3'>
                         <div className='truncate'>
-                          {getTimeStamp(match.gameData.info.gameCreation)}
+                          {getTimeStamp(match.gameData.createdAt)}
                         </div>
                         <div className='truncate'>
-                          {(match.gameData.info.gameDuration / 60).toFixed()} minutes 
-                        </div>
-                        <div className={'truncate font-extralight' + getCssRuleWin(match.gameData.info.teams[0])}>
-                          {getWinnerText(match.gameData.info.teams[0])} Win 
+                          {((match.gameData.gameLength) / 60000 ).toFixed(0)} minutes 
                         </div>
                         <div className='truncate text-grayDetailText text-xs font-thin'>
-                          ver:{match.gameData.info.gameVersion}
+                          ver:{match.gameData.gameVersion}
+                        </div>
+                        <div className={getCssRuleWin(match.gameData.statsJson[0])}>
+                          {getTextRuleWin(match.gameData.statsJson[0])}
                         </div>
                       </div>
 
+                      {/*TEAMS' TOTAL KILLS*/}
                       <div className='flex-col pr-3'>
-                        <p className='text-blue text-lg'>{match.gameData.info.teams[0].objectives.champion.kills}</p>
+                        <p className='text-blue text-lg'>{getTeamKills(getBlueTeamSummoners(match.gameData.statsJson))}</p>
                         <RiSwordFill className='text-xl'></RiSwordFill>
-                        <p className='text-red text-lg'>{match.gameData.info.teams[0].objectives.champion.kills}</p>
+                        <p className='text-red text-lg'>{getTeamKills(getRedTeamSummoners(match.gameData.statsJson))}</p>
                       </div>
                     
                       <div className='flex-col'>
                             <div className='flex'>
                               <div className='flex mr-4'>
-                                {match.gameData.info.participants.filter(p => p.teamId === 100).map((participant, idx) =>
+                                {match.gameData.statsJson.filter(p => p.TEAM === "100").map((participant, idx) =>
                                         <div key={'blue-summoner-'+idx} className='flex-row mr-1'>
-                                              <img className='object-scale-down w-14 rounded-none border-l-8 border-blue' src={getChampionImageSource(participant.championName)}></img>
+                                              <img className='object-scale-down w-14 rounded-none border-l-8 border-blue' src={getChampionImageSource(participant.SKIN)}></img>
                                               <div className='w-14 text-left text-xs truncate'>
-                                                <p>{participant.summonerName}</p>
+                                                <p>{participant.NAME}</p>
                                               </div>
                                         </div>
                                   )}
                               </div>
                               <div className='flex'>
-                                {match.gameData.info.participants.filter(p => p.teamId === 200).map((participant, idx) =>
+                                {match.gameData.statsJson.filter(p => p.TEAM === "200").map((participant, idx) =>
                                         <div key={'red-summoner-'+idx} className='flex-row mr-1'>
-                                              <img className='object-scale-down w-14 rounded-none border-r-8 border-red' src={getChampionImageSource(participant.championName)}></img>
+                                              <img className='object-scale-down w-14 rounded-none border-r-8 border-red' src={getChampionImageSource(participant.SKIN)}></img>
                                               <div className='w-14 text-left text-xs truncate'>
-                                                <p>{participant.summonerName}</p>
+                                                <p>{participant.NAME}</p>
                                               </div>
                                         </div>
-                                  )}
-                              </div>
-                            </div>
-                        <div className='flex justify-between'>
-                              <div className='flex m-1'>
-                                {match.gameData.info.teams['0'].bans.map((ban, idx) => 
-                                  <div key={'blue-ban-'+idx}>
-                                    <img className='object-scale-down w-6 rounded-none' src={getChampionImageSource(getChampionNameById(ban.championId))}></img>
-                                  </div>
-                                  )}
-                              </div>
-                              <div className='flex m-1'>
-                                {match.gameData.info.teams['1'].bans.map((ban, idx) => 
-                                  <div key={'red-ban-'+idx} >
-                                    <img className='object-scale-down w-6 rounded-none' src={getChampionImageSource(getChampionNameById(ban.championId))}></img>
-                                  </div>
                                   )}
                               </div>
                             </div>
@@ -151,11 +147,10 @@ const History = () => {
                     )}
                   </div>
           </div>
-          
         </div>
-      </div>
     )
   }
+
   return (
     <div className='bg-ikkiarBgGray2 flex-col justify-center h-screen mt-10 rounded-md overflow-hidden'>
       <div className='flex justify-center pt-52'>

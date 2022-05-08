@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
-const schema = mongoose.Schema({
+const queuerSchema = new mongoose.Schema({
     ///leagueIGN: { type: String, required: true},
     discordName: { type: String, required: true },
     discordId: { type: String, required: true, unique: false },
@@ -12,7 +12,9 @@ const schema = mongoose.Schema({
     accepted: { type: Boolean, default: false }
 })
 
-schema.set('toJSON', {
+mongoose.promise = global.Promise
+
+queuerSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
@@ -20,4 +22,4 @@ schema.set('toJSON', {
   }
 })
 
-module.exports =  mongoose.models.Queuer || mongoose.model('Queuer', schema)
+module.exports =  mongoose.models.Queuer || mongoose.model('Queuer', queuerSchema)

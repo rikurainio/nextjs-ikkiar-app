@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
-const schema = mongoose.Schema({
+const summonerSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -45,7 +45,9 @@ const schema = mongoose.Schema({
   
 })
 
-schema.set('toJSON', {
+mongoose.promise = global.Promise
+
+summonerSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
@@ -53,4 +55,4 @@ schema.set('toJSON', {
   }
 })
 
-module.exports = mongoose.models.Summoner || mongoose.model('Summoner', schema)
+module.exports = mongoose.models.Summoner || mongoose.model('Summoner', summonerSchema)

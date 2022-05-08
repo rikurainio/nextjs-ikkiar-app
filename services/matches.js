@@ -3,7 +3,7 @@ const baseUrl = '/api/matches'
 
 const getAll = async () => {
     const response = await axios.get(baseUrl)
-    return response.data
+    return response
 }
 
 export default { getAll }

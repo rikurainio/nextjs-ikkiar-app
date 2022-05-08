@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const MONGODB_URI = process.env.MONGODB_URI
 
@@ -10,6 +10,7 @@ if (!MONGODB_URI) {
 
 const dbConnect = async () => {
     await mongoose.connect(MONGODB_URI)
+    console.log('Connected to MongoDB')
 }
 
 export default dbConnect
