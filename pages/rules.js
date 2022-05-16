@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 const Rules = () => {
     return (
-        <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden h-screen'>
+        <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden h-screen px-10'>
  
         <div className='flex justify-center'>
             <div className='flex-col justify-center'>
@@ -23,7 +23,7 @@ const Rules = () => {
                     
 
                 </div>
-                <div className='flex justify-center mt-10 text-lg'>
+                <div className='flex justify-center mt-10 text-lg px-4'>
                     <ul className='list-disc'>
                         <li>
                             Queue to your main role
