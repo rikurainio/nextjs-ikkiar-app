@@ -29,49 +29,52 @@ const Leaderboard = () => {
     return (
       <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden'>
 
-        <h2 className='text-2xl text-center pt-5'>
+        <h2 className='text-3xl font-bold text-center pt-5'>
           Leaderboard
         </h2>
 
-        <div className='flex-col w-auto'>
-          {leaderboard.map((s, idx) =>
+        <div className='flex justify-center'>
+          <div className='flex-col my-8'>
+            {leaderboard.map((s, idx) =>
 
 
-              <motion.div whileHover={{ scale: 1.06 }} key={'leaderboard-summoner-' + idx} className='flex justify-center border-l-8 border-green rounded-l my-4 bg-ikkiarBgGray1'>
+                <motion.div whileHover={{ scale: 1.06 }} key={'leaderboard-summoner-' + idx} className='flex justify-center w-full border-l-8 border-green rounded-l my-4 mx-2 p-2 bg-ikkiarBgGray1'>
 
-                  {idx === 0 ? 
-                  <div className='flex py-1 my-1'>
-                    <div className='flex'>
-                      <div className='w-96'>
-                        <h2 className='text-xl'>🥇{s.username} (megamonke 🐒👑)</h2>
-                      </div>
-                      <div className='w-40'>
-                        <p className='text-xl text-center font-bold'>&nbsp;{s.points}💠&nbsp;</p>
-                      </div>
-                      <div className='w-24'>
-                        <p className='text-xl text-center font-normal'>{s.wins}W&nbsp;{s.losses}L</p>
+                    {idx === 0 ? 
+                    <div className='flex py-1 my-1'>
+                      <div className='flex'>
+                        <div className='w-96'>
+                          <h2 className='text-xl'>{idx+1}.🥇{s.username} (megamonke 🐒👑)</h2>
+                        </div>
+                        <div className='w-40'>
+                          <p className='text-xl text-center font-bold'>&nbsp;{s.points}💠&nbsp;</p>
+                        </div>
+                        <div className='w-24'>
+                          <p className='text-xl text-center font-normal'>{s.wins}W&nbsp;{s.losses}L</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  : 
-                  
-                  <div className='flex py-1 my-1'>
-                      <div className='w-96'>
-                        { idx === 1 || idx === 2 ? <h2 className='text-xl'>{idx ===1 ? '🥈' : '🥉'}{s.username} {idx === 1 ? '(ape-ape 🐵)' : idx===2 ? '(good monke🙊)' : null}</h2> : <h2 className='text-xl'>🏅{s.username}</h2>}
+                    : 
+                    
+                    <div className='flex py-1 my-1'>
+                        <div className='w-96'>
+                          { idx === 1 || idx === 2 ? <h2 className='text-xl'>{idx ===1 ? idx+1 + '.🥈' : idx+1 + '.🥉'}{s.username} {idx === 1 ? '(ape-ape 🐵)' : idx===2 ? '(good monke🙊)' : null}</h2> : <h2 className='text-xl'>{idx+1}.🏅{s.username}</h2>}
+                        </div>
+                        <div className='w-40'>
+                          <p className='text-xl text-center font-bold'>&nbsp;{s.points}💠&nbsp;</p>
+                        </div>
+                        <div className='w-24'>
+                          <p className='text-xl text-center font-normal'>{s.wins}W&nbsp;{s.losses}L</p>
+                        </div>
                       </div>
-                      <div className='w-40'>
-                        <p className='text-xl text-center font-bold'>&nbsp;{s.points}💠&nbsp;</p>
-                      </div>
-                      <div className='w-24'>
-                        <p className='text-xl text-center font-normal'>{s.wins}W&nbsp;{s.losses}L</p>
-                      </div>
-                    </div>
-                  }
-              </motion.div>
+                    }
+                </motion.div>
 
-          )}
+            )}
+          </div>
         </div>
+        
       </div>
     )
   }

@@ -87,14 +87,14 @@ const History = () => {
     return (
       <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden'>
 
-          <h2 className='text-2xl text-center pt-5'>
+          <h2 className='text-3xl font-bold text-center pt-5'>
             Match history
           </h2>
 
           <div className='flex justify-center'>
-                  <div className='flex-col p-6'>
+                  <div className='flex-col'>
                     {matches.reverse().map((match, idx) => 
-                      <motion.div whileHover={{ scale: 1.03 }} key={'leaderboard-summoner-' + idx} className={'flex justify-end border-l-8 border-green rounded-l py-2 my-10 bg-ikkiarBgGray1'}>
+                      <motion.div whileHover={{ scale: 1.03 }} key={'leaderboard-summoner-' + idx} className={'flex justify-end border-l-8 border-green rounded-l py-1 my-8 bg-ikkiarBgGray1'}>
 
                       <div className='flex-col pr-2 border-r border-grayDetailText mr-3 ml-3'>
                         <div className='truncate'>

@@ -9,7 +9,7 @@ export default function Home() {
       </Head>
 
 
-      <flex className='flex justify-center'>
+      <div className='flex justify-center'>
         <div className='flex-col justify-center'>
           <h1 className="text-4xl font-bold underline pt-5">
             🐒 Ikkiar 👋
@@ -18,7 +18,7 @@ export default function Home() {
             Welcome to Ikkiar's nest
           </div>
         </div>
-      </flex>
+      </div>
      
   
       <div className='flex justify-center mt-10'>
