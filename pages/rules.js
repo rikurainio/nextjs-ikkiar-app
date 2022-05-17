@@ -34,6 +34,9 @@ const Rules = () => {
                         <li>
                             Trolling, toxicity & unsportsmanlike behavior is not tolerated
                         </li>
+                        <li>
+                            No one tricks due to abuse in draft
+                        </li>
                     </ul>
                 </div>
             </div>
