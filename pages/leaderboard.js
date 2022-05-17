@@ -30,7 +30,8 @@ const Leaderboard = () => {
       <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden'>
 
         <h2 className='text-3xl font-bold text-center pt-5'>
-          Leaderboard
+          Leaderboard <br></br>
+          Season 1
         </h2>
 
         <div className='flex justify-center'>
