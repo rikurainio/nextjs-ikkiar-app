@@ -169,8 +169,6 @@ const getChampionNameById = (id) => {
 }
 
 const getChampionImageSource = (championName) => {
-    console.log('getting this champ name:', championName)
-
     if(championName === 'LeBlanc'){ championName = 'Leblanc' }
     if(championName.indexOf(' ') >= 0){
         let idx = championName.indexOf(' ')
@@ -188,7 +186,6 @@ const getChampionImageSource = (championName) => {
     = "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/" +
         championName + ".png"
     
-    console.log('returning url: ',  CDN1271_IMG_BY_CHAMP_NAME)
     return CDN1271_IMG_BY_CHAMP_NAME
 }
 
