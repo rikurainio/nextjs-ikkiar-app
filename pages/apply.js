@@ -10,8 +10,9 @@ const Apply = () => {
             <div className='flex justify-center'>
                 <div className='flex-col max-w-md w-auto h-auto text-lg mt-7'>
                     Read queue rules before applying <br></br>
-                    Apply to Ikkiar <br></br> queue <a className='text-md text-discord' href='https://forms.gle/Ao9yEtvWsCrEAqe68'> here 🎮</a>
+                    Apply to Ikkiar queue <a className='text-md text-discord' href='https://forms.gle/Ao9yEtvWsCrEAqe68'> here 🎮</a>
 
+                    <br></br>
 
                     After about 35 to 50 Summoners have been chosen
                     the applying system will change. After this a Summoner
