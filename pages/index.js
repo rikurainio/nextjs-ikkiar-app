@@ -27,7 +27,7 @@ export default function Home() {
               What is Ikkiar?
             </h1>
             <div className='flex-wrap justify-center pt-4'>
-              Ikkiar is a Discord bot that runs inhouses. Join the inhouse server <a className='text-md text-discord' href='https://discord.gg/pR4DgC82'> here 🎮</a>
+              Ikkiar is a Discord bot that runs inhouses. Join the inhouse server <a className='text-md text-discord' href='https://discord.gg/HwhMkRxaWX'> here 🎮</a>
             </div>
         </div>
       </div>
