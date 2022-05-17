@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { getChampionImageSource, getChampionNameById } from '../services/champion'
 import RotateLoader from "react-spinners/RotateLoader";
 import match from '../models/match';
+import Togglable from '../components/toggleable';
 
 const History = () => {
   const [loading, setLoading] = useState(true)
@@ -94,54 +95,66 @@ const History = () => {
           <div className='flex justify-center'>
                   <div className='flex-col'>
                     {matches.reverse().map((match, idx) => 
-                      <motion.div whileHover={{ scale: 1.03 }} key={'leaderboard-summoner-' + idx} className={'flex justify-end border-l-8 border-green rounded-l py-1 my-8 bg-ikkiarBgGray1'}>
+                      <motion.div whileHover={{ scale: 1.03 }} key={'leaderboard-summoner-' + idx} className={'flex-col justify-end border-l-8 border-green rounded-l py-1 my-8 bg-ikkiarBgGray1'}>
 
-                      <div className='flex-col pr-2 border-r border-grayDetailText mr-3 ml-3'>
-                        <div className='truncate'>
-                          {getTimeStamp(match.gameData.createdAt)}
-                        </div>
-                        <div className='truncate'>
-                          {((match.gameData.gameLength) / 60000 ).toFixed(0)} minutes 
-                        </div>
-                        <div className='truncate text-grayDetailText text-xs font-thin'>
-                          ver:{match.gameData.gameVersion}
-                        </div>
-                        <div className={getCssRuleWin(match.gameData.statsJson[0])}>
-                          {getTextRuleWin(match.gameData.statsJson[0])}
-                        </div>
-                      </div>
-
-                      {/*TEAMS' TOTAL KILLS*/}
-                      <div className='flex-col pr-3'>
-                        <p className='text-blue text-lg'>{getTeamKills(getBlueTeamSummoners(match.gameData.statsJson))}</p>
-                        <RiSwordFill className='text-xl'></RiSwordFill>
-                        <p className='text-red text-lg'>{getTeamKills(getRedTeamSummoners(match.gameData.statsJson))}</p>
-                      </div>
-                    
-                      <div className='flex-col'>
-                            <div className='flex'>
-                              <div className='flex mr-4'>
-                                {match.gameData.statsJson.filter(p => p.TEAM === "100").map((participant, idx) =>
-                                        <div key={'blue-summoner-'+idx} className='flex-row mr-1'>
-                                              <img className='object-scale-down w-14 rounded-none border-l-8 border-blue' src={getChampionImageSource(participant.SKIN)}></img>
-                                              <div className='w-14 text-left text-xs truncate'>
-                                                <p>{participant.NAME}</p>
-                                              </div>
-                                        </div>
-                                  )}
-                              </div>
-                              <div className='flex'>
-                                {match.gameData.statsJson.filter(p => p.TEAM === "200").map((participant, idx) =>
-                                        <div key={'red-summoner-'+idx} className='flex-row mr-1'>
-                                              <img className='object-scale-down w-14 rounded-none border-r-8 border-red' src={getChampionImageSource(participant.SKIN)}></img>
-                                              <div className='w-14 text-left text-xs truncate'>
-                                                <p>{participant.NAME}</p>
-                                              </div>
-                                        </div>
-                                  )}
-                              </div>
+                        <div className='flex'>
+                            <div className='flex-col pr-2 border-r border-grayDetailText mr-3 ml-3'>
+                            <div className='truncate'>
+                              {getTimeStamp(match.gameData.createdAt)}
                             </div>
+                            <div className='truncate'>
+                              {((match.gameData.gameLength) / 60000 ).toFixed(0)} minutes 
+                            </div>
+                            <div className='truncate text-grayDetailText text-xs font-thin'>
+                              ver:{match.gameData.gameVersion}
+                            </div>
+                            <div className={getCssRuleWin(match.gameData.statsJson[0])}>
+                              {getTextRuleWin(match.gameData.statsJson[0])}
+                            </div>
+                            </div>
+
+                            {/*TEAMS' TOTAL KILLS*/}
+                            <div className='flex-col pr-3'>
+                              <p className='text-blue text-lg'>{getTeamKills(getBlueTeamSummoners(match.gameData.statsJson))}</p>
+                              <RiSwordFill className='text-xl'></RiSwordFill>
+                              <p className='text-red text-lg'>{getTeamKills(getRedTeamSummoners(match.gameData.statsJson))}</p>
+                            </div>
+                                
+                            <div className='flex-col'>
+                                  <div className='flex'>
+                                    <div className='flex mr-4'>
+                                      {match.gameData.statsJson.filter(p => p.TEAM === "100").map((participant, idx) =>
+                                              <div key={'blue-summoner-'+idx} className='flex-row mr-1'>
+                                                    <img className='object-scale-down w-14 rounded-none border-l-8 border-blue' src={getChampionImageSource(participant.SKIN)}></img>
+                                                    <div className='w-14 text-left text-xs truncate'>
+                                                      <p>{participant.NAME}</p>
+                                                    </div>
+                                              </div>
+                                        )}
+                                    </div>
+                                    <div className='flex'>
+                                      {match.gameData.statsJson.filter(p => p.TEAM === "200").map((participant, idx) =>
+                                              <div key={'red-summoner-'+idx} className='flex-row mr-1'>
+                                                    <img className='object-scale-down w-14 rounded-none border-r-8 border-red' src={getChampionImageSource(participant.SKIN)}></img>
+                                                    <div className='w-14 text-left text-xs truncate'>
+                                                      <p>{participant.NAME}</p>
+                                                    </div>
+                                              </div>
+                                        )}
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                      
+                      <div className='w-full h-full flex justify-end pr-3'>
+                        <Togglable buttonLabel='show details'>
+                            <div className='flex justify-center text-center w-full h-full'>
+                              lol
+                            </div>
+                        </Togglable>
                       </div>
+                
+
                     </motion.div>
                       
                     )}
