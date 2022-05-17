@@ -14,6 +14,7 @@ module.exports = {
       'ikkiarMain': '#00caa4',
       'ikkiarDark': '#13ce66',
       'ikkiarBright': '#13ce66',
+      'ikkiarLightGreen': '#ffffff',
 
       'ikkiarDark2': '#45a390',
 

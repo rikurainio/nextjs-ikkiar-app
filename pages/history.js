@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import matchService from '../services/matches'
 import { RiSwordFill } from 'react-icons/ri';
+import { GiBrute, GiCornerExplosion } from 'react-icons/gi'
 import { motion } from "framer-motion"
 import { getChampionImageSource, getChampionNameById } from '../services/champion'
 import RotateLoader from "react-spinners/RotateLoader";
@@ -137,7 +138,7 @@ const History = () => {
                                               <div key={'red-summoner-'+idx} className='flex-row mr-1'>
                                                     <img className='object-scale-down w-14 rounded-none border-r-8 border-red' src={getChampionImageSource(participant.SKIN)}></img>
                                                     <div className='w-14 text-left text-xs truncate'>
-                                                      <p>{participant.NAME}</p>border
+                                                      <p>{participant.NAME}</p>
                                                     </div>
                                               </div>
                                         )}
@@ -152,16 +153,25 @@ const History = () => {
                               <div className='flex justify-center w-auto h-auto mt-5'>
                                 <div className='w-full h-full'>
                                   {getBlueTeamSummoners(match.gameData.statsJson).map((bs => 
-                                    <div>{bs.NAME} | LVL {bs.LEVEL} {bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS} &nbsp; ({bs.MINIONS_KILLED} cs) DMG {bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS}
+                                    <div>
+                                      
+                                      <div className='flex-col mt-4'>
+                                        <div className='flex justify-center'>
+                                          <p className='font-bold'>{bs.NAME}</p>
+                                          <p className='ml-2'>LVL {bs.LEVEL}</p>
+                                          <p className='ml-2'>{bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS}</p>
+                                        </div>
+                                        <div>({bs.MINIONS_KILLED} <GiBrute className='inline-block mb-1' />)  {(parseInt(bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS)/1000).toFixed(1)}K <GiCornerExplosion className='inline-block mb-1 text-lg'/></div>
+                                      </div>
                                     
                                     <div className='flex justify-center'>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM0 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM1 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM2 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM3 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM4 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM5 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM6 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM0 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM1 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM2 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM3 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM4 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM5 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM6 +'.png'}></img>
                                     </div>
                                     
                                     </div>
@@ -169,16 +179,26 @@ const History = () => {
                                 </div>
                                 <div className='w-full h-full'>
                                 {getRedTeamSummoners(match.gameData.statsJson).map((bs => 
-                                    <div>{bs.NAME} | LVL {bs.LEVEL} {bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS} &nbsp; ({bs.MINIONS_KILLED} cs) DMG {bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS}
+                                    <div>
+
+                                      <div className='flex-col mt-4'>
+                                        <div className='flex justify-center'>
+                                          <p className='font-bold'>{bs.NAME}</p>
+                                          <p className='ml-2'>LVL {bs.LEVEL}</p>
+                                          <p className='ml-2'>{bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS}</p>
+                                        </div>
+                                        <div>({bs.MINIONS_KILLED} <GiBrute className='inline-block mb-1' />)  {(parseInt(bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS)/1000).toFixed(1)}K <GiCornerExplosion className='inline-block mb-1 text-lg'/></div>
+                                      </div>
+
                                     
                                     <div className='flex justify-center'>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM0 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM1 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM2 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM3 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM4 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM5 +'.png'}></img>
-                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM6 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM0 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM1 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM2 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM3 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM4 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM5 +'.png'}></img>
+                                      <img className='object-contain w-12 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM6 +'.png'}></img>
                                     </div>
                                     
                                     </div>  
