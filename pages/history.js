@@ -137,7 +137,7 @@ const History = () => {
                                               <div key={'red-summoner-'+idx} className='flex-row mr-1'>
                                                     <img className='object-scale-down w-14 rounded-none border-r-8 border-red' src={getChampionImageSource(participant.SKIN)}></img>
                                                     <div className='w-14 text-left text-xs truncate'>
-                                                      <p>{participant.NAME}</p>
+                                                      <p>{participant.NAME}</p>border
                                                     </div>
                                               </div>
                                         )}
@@ -152,12 +152,36 @@ const History = () => {
                               <div className='flex justify-center w-auto h-auto mt-5'>
                                 <div className='w-full h-full'>
                                   {getBlueTeamSummoners(match.gameData.statsJson).map((bs => 
-                                    <div>{bs.NAME} | LVL {bs.LEVEL} {bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS} &nbsp; ({bs.MINIONS_KILLED} cs) DMG {bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS}</div>  
+                                    <div>{bs.NAME} | LVL {bs.LEVEL} {bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS} &nbsp; ({bs.MINIONS_KILLED} cs) DMG {bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS}
+                                    
+                                    <div className='flex justify-center'>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM0 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM1 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM2 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM3 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM4 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM5 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM6 +'.png'}></img>
+                                    </div>
+                                    
+                                    </div>
                                   ))}
                                 </div>
                                 <div className='w-full h-full'>
                                 {getRedTeamSummoners(match.gameData.statsJson).map((bs => 
-                                    <div>{bs.NAME} | LVL {bs.LEVEL} {bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS} &nbsp; ({bs.MINIONS_KILLED} cs) DMG {bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS}</div>  
+                                    <div>{bs.NAME} | LVL {bs.LEVEL} {bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS} &nbsp; ({bs.MINIONS_KILLED} cs) DMG {bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS}
+                                    
+                                    <div className='flex justify-center'>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM0 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM1 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM2 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM3 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM4 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM5 +'.png'}></img>
+                                      <img className='object-contain w-7 border' alt='' src={'https://ddragon.leagueoflegends.com/cdn/12.9.1/img/item/' + bs.ITEM6 +'.png'}></img>
+                                    </div>
+                                    
+                                    </div>  
                                   ))}
                                 </div>
                               </div>
