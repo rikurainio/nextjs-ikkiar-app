@@ -149,12 +149,16 @@ const History = () => {
                         <Togglable buttonLabel='show details'>
                             <hr className='mx-3 opacity-40'></hr>
                             <div className='flex-col justify-center content-center text-center w-auto h-auto'>
-                              <div className='flex justify-center w-auto h-auto'>
+                              <div className='flex justify-center w-auto h-auto mt-5'>
                                 <div className='w-full h-full'>
-                                  blue team
+                                  {getBlueTeamSummoners(match.gameData.statsJson).map((bs => 
+                                    <div>{bs.NAME} | LVL {bs.LEVEL} {bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS} &nbsp; ({bs.MINIONS_KILLED} cs) DMG {bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS}</div>  
+                                  ))}
                                 </div>
                                 <div className='w-full h-full'>
-                                  red team
+                                {getRedTeamSummoners(match.gameData.statsJson).map((bs => 
+                                    <div>{bs.NAME} | LVL {bs.LEVEL} {bs.CHAMPIONS_KILLED}/{bs.NUM_DEATHS}/{bs.ASSISTS} &nbsp; ({bs.MINIONS_KILLED} cs) DMG {bs.TOTAL_DAMAGE_DEALT_TO_CHAMPIONS}</div>  
+                                  ))}
                                 </div>
                               </div>
                             </div>
