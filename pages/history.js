@@ -86,7 +86,7 @@ const History = () => {
       )
     }
     return (
-      <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden h-screen'>
+      <div className='bg-ikkiarBgGray2 flex-col justify-center mt-10 rounded-md overflow-hidden h-full'>
 
           <h2 className='text-3xl font-bold text-center pt-5'>
             Match history
