@@ -146,14 +146,19 @@ const History = () => {
                             </div>
                         </div>
                       
-                      <div className='w-full h-full flex justify-end pr-3'>
                         <Togglable buttonLabel='show details'>
-                            <div className='flex justify-center text-center w-full h-full'>
-                              lol
+                            <hr className='mx-3 opacity-40'></hr>
+                            <div className='flex-col justify-center content-center text-center w-auto h-auto'>
+                              <div className='flex justify-center w-auto h-auto'>
+                                <div className='w-full h-full'>
+                                  blue team
+                                </div>
+                                <div className='w-full h-full'>
+                                  red team
+                                </div>
+                              </div>
                             </div>
                         </Togglable>
-                      </div>
-                
 
                     </motion.div>
                       
