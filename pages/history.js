@@ -93,7 +93,12 @@ const History = () => {
             Match history
           </h2>
 
-          <div className='flex justify-center'>
+          <div className='flex justify-center sm:hidden'>
+            asd
+          </div>
+
+
+          <div className='flex justify-center invisible sm:visible'>
                   <div className='flex-col'>
                     {matches.reverse().map((match, idx) => 
                       <motion.div whileHover={{ scale: 1.03 }} key={'leaderboard-summoner-' + idx} className={'flex-col justify-end border-l-8 border-green rounded-l py-1 my-8 bg-ikkiarBgGray1'}>

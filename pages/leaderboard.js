@@ -49,7 +49,7 @@ const Leaderboard = () => {
                         </div>
                         <div className='flex-col sm:flex'>
                           <div className='w24 sm:w-40'>
-                            <p className='text-xl text-center font-bold'>&nbsp;&nbsp;&nbsp;{s.points}💠&nbsp;</p>
+                            <p className='text-xl text-center font-bold'>&nbsp;&nbsp;&nbsp;{s.points.toFixed(0)}💠&nbsp;</p>
                           </div>
                           <div className='w-24 sm:w-40'>
                             <p className='text-xl text-center font-normal'>{s.wins}W&nbsp;{s.losses}L</p>
@@ -66,7 +66,7 @@ const Leaderboard = () => {
                         </div>
                         <div className='flex-col sm:flex'>
                           <div className='w24 sm:w-40'>
-                            <p className='text-xl text-center font-bold'>&nbsp;{s.points}💠&nbsp;</p>
+                            <p className='text-xl text-center font-bold'>&nbsp;{s.points.toFixed(0)}💠&nbsp;</p>
                           </div>
                           <div className='w24 sm:w-40'>
                             <p className='text-xl text-center font-normal'>{s.wins}W&nbsp;{s.losses}L</p>

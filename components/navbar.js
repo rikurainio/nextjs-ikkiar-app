@@ -1,6 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 
+import { IoSunnySharp } from 'react-icons/io'
+import { RiMoonFill } from 'react-icons/ri'
+
 const Navbar = () => {
   return (
     <div className='flex flex-col sm:flex-row justify-center w-auto h-auto mt-10 px-10 sm:space-x-6'>
@@ -45,6 +48,7 @@ const Navbar = () => {
         </h1>
         </div>
       </Link>
+
     </div>
   )
 }
